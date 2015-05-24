@@ -2,15 +2,15 @@
 //$title = 'Template Comparison';
 ob_start();
 ?>
-<h1><?=$engine ?></h1>
+<h2><?=$engine ?></h2>
 <?php if ($pages): ?>
-	<ul>
-		<?php foreach ($pages as $page): ?>
-			<li<?php if ($page == $currentPage): ?> class="current"<?php endif ?>><?=htmlspecialchars($page)?></li>
-		<?php endforeach ?>
-	</ul>
+    <ul>
+        <?php foreach ($pages as $page): ?>
+            <li<?php if ($page == $currentPage): ?> class="current"<?php endif ?>><?=htmlspecialchars($page)?></li>
+        <?php endforeach ?>
+    </ul>
 <?php else: ?>
-	<p>empty</p>
+    <p>empty</p>
 <?php endif ?>
 <?php
 $content = ob_get_clean();
