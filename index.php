@@ -1,23 +1,34 @@
 <?php
-$knownTests = array('latte' => 'Latte', 'php' => 'Raw PHP', 'twig' => 'Twig');
-$test = isset($_GET['test'], $knownTests[$_GET['test']]) ? $_GET['test'] : NULL;
 
-function runTest($name)
+$knownTests = glob("*", GLOB_ONLYDIR);
+$knownTests = array_flip($knownTests);
+                                
+function runTests(&$tests)
 {
-	$time = -microtime(true);
-	require __DIR__ . '/' . strtolower($name) . '/init.php';
-	echo "<!-- Template start -->\n";
-	renderTemplate('homepage', array(
-		'pages' => array('About', 'Is better <strong> or <b>?'),
-		'currentPage' => 'About',
-	));
-	echo "<!-- Template end -->\n\n";
-	$time += microtime(true);
+    foreach ($tests as $id => &$data){
+        $data = [];
+        $data['time'] = -microtime(true);
+        $folder = __DIR__ . '\\' . strtolower($id);
+        $data['engine'] = trim(file_get_contents($folder . "\\name.txt"));
+        if ($data['engine'] == ' Plates'){
+            continue;
+        }
+        require $folder . '\\init.php';
+        echo "<!-- Template start -->\n";
+        $data['renderTemplate']('homepage', array(
+            'title'         => 'Temoplate Engines Comparison', 
+            'engine'        => $data['engine'], 
+            'pages'         => array('About', 'Is better <strong> or <b>?'),
+            'currentPage'   => 'About',
+        ));
+        echo "<!-- Template end -->\n\n";
+        $data['time'] += microtime(true);
 
-	echo "<pre class=\"results\">\n";
-	printf("Memory usage:   %5.1f kB\n", memory_get_peak_usage() / 1024);
-	printf("Execution time: %5.1f ms\n", $time * 1000);
-	echo "</pre>\n";
+        echo "<pre class=\"results\">\n";
+        printf("Memory usage:   %5.1f kB\n", memory_get_peak_usage() / 1024);
+        printf("Execution time: %5.1f ms\n", $data['time'] * 1000);
+        echo "</pre>\n";
+    }
 }
 ?>
 
@@ -59,10 +70,4 @@ function runTest($name)
 	}
 </style>
 
-<ul class="tests">
-	<?php foreach ($knownTests as $id => $name): ?>
-		<li><a href="?test=<?=$id?>"><?=$name?></a></li>
-	<?php endforeach; ?>
-</ul>
-
-<?php if ($test) runTest($test); ?>
+<?php if ($knownTests) runTests($knownTests); ?>

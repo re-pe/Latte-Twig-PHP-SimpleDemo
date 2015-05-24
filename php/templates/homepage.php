@@ -1,8 +1,8 @@
 <?php
-$title = 'My personal homepage';
+//$title = 'Template Comparison';
 ob_start();
 ?>
-<h1>Homepage</h1>
+<h1><?=$engine ?></h1>
 <?php if ($pages): ?>
 	<ul>
 		<?php foreach ($pages as $page): ?>

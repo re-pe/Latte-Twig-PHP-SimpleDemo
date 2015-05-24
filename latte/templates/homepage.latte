@@ -1,14 +1,14 @@
 {layout layout.latte}
 
-{block title}My personal homepage{/block}
+{block title}{$title}{/block}
 
 {block content}
-	<h1>Homepage</h1>
-	{if $pages}
-		<ul n:inner-foreach="$pages as $page">
-			<li n:class="$page == $currentPage ? current">{$page}</li>
-		</ul>
-	{else}
-		<p>empty</p>
-	{/if}
+    <h1>{$engine}</h1>
+    {if $pages}
+        <ul n:inner-foreach="$pages as $page">
+            <li n:class="$page == $currentPage ? current">{$page}</li>
+        </ul>
+    {else}
+        <p>empty</p>
+    {/if}
 {/block}

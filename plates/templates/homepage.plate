@@ -1,0 +1,6 @@
+<?php $this->layout('layout', ['title' => $title]) ?>
+
+<h1><?=$this->e($engine)?></h1>
+<?php foreach($pages as $page){ ?>
+<li <?php if ($page == $currentPage){ ?>class="current"<?php } ?>><?=$this->e($page)?></li>
+<?php } ?>
