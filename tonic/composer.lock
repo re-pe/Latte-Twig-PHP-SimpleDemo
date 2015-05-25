@@ -1,0 +1,62 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "3bc171134d18e7a7f31b7031f4190658",
+    "packages": [
+        {
+            "name": "rgamba/tonic",
+            "version": "3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rgamba/tonic.git",
+                "reference": "f780a8859118c7b13b8b2d22861defc409b4ab92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rgamba/tonic/zipball/f780a8859118c7b13b8b2d22861defc409b4ab92",
+                "reference": "f780a8859118c7b13b8b2d22861defc409b4ab92",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tonic\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Gamba",
+                    "email": "rgamba@gmail.com",
+                    "homepage": "http://github.com/rgamba",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Super fast and powerful PHP template engine",
+            "homepage": "https://github.com/rgamba/tonic",
+            "keywords": [
+                "php",
+                "template",
+                "template engine"
+            ],
+            "time": "2015-03-27 05:09:20"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
