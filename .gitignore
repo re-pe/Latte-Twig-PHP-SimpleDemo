@@ -1,2 +1,4 @@
+/nbproject/
 /*/cache/*
 !/*/cache/.gitkeep
+*.zip
