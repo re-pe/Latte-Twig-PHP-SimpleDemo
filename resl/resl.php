@@ -414,3 +414,4 @@ namespace Leita\Resl;
 		//echo "<pre>result: ", htmlentities($result), "</pre>";
 		return $result;
 	}
+

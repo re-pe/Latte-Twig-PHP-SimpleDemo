@@ -1,4 +1,2 @@
-/latte/cache/*
-!/latte/cache/.gitkeep
-/twig/cache/*
-!/twig/cache/.gitkeep
+/*/cache/*
+!/*/cache/.gitkeep
